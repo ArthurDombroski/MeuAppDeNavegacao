@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
@@ -9,7 +9,7 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
-const [senha, setSenha] = useState('');
+    const [senha, setSenha] = useState('');
     return (
         <View style={styles.container}>
             <TextInput
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#faf0e6', 
-        
-      },
+        backgroundColor: '#faf0e6',
+
+    },
     input: {
         height: 40,
         borderColor: 'gray',
@@ -58,9 +58,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     buttonContainer: {
-        backgroundColor: '#ffebcd', 
+        backgroundColor: '#ffebcd',
         margin: 10,
-        width: windowWidth * 0.5, 
+        width: windowWidth * 0.5,
         borderRadius: 5,
-      },
+    },
 });
