@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, Dimensions, TextInput } from 'react-native';
+import { View, Text, Button, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -16,23 +16,45 @@ export default function LoginScreen({ navigation }) {
                 placeholder='Insira seu Email'
                 keyboardType='password'
             />
-            <TouchableOpacity style={styles.cuidados} onPress={() => navigation.navigate('Home')}></TouchableOpacity>
+
+            <View style={styles.buttonContainer}>
+                <Button
+                    title="Go to Home"
+                    onPress={() => navigation.navigate('Home')}
+                />
+
+            </View>
         </View>
+
+
+
     );
 };
 
 const styles = StyleSheet.create({
-    formContainer: {
-      backgroundColor: '#f0f0f0',
-      padding: 16,
-      borderRadius: 10,
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#faf0e6', 
+      },
+      formContainer: {
+        backgroundColor: '#f0f0f0',
+        padding: 16,
+        borderRadius: 10,
     },
     input: {
-      height: 40,
-      borderColor: 'gray',
-      borderWidth: 1,
-      marginBottom: 12,
-      paddingHorizontal: 8,
-      borderRadius: 5,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginBottom: 12,
+        paddingHorizontal: 8,
+        borderRadius: 5,
     },
-  });
+    buttonContainer: {
+        backgroundColor: '#ffebcd', 
+        margin: 10,
+        width: windowWidth * 0.5, 
+        borderRadius: 5,
+      },
+});

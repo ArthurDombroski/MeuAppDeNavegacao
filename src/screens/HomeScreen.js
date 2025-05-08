@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
       marginBottom: 20,
     },
     buttonContainer: {
-      backgroundColor: '#add8e6', // Cor de fundo do container do botão
+      backgroundColor: '#add8e6', 
       margin: 10,
-      width: windowWidth * 0.5, // 50% da largura da tela
+      width: windowWidth * 0.5, 
       borderRadius: 5,
     },
   });
