@@ -1,20 +1,30 @@
-import React from 'react';
+
+import React, {useState} from 'react';
 import { View, Text, Button, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
+
+
+
 export default function LoginScreen({ navigation }) {
+    const [email, setEmail] = useState('');
+const [senha, setSenha] = useState('');
     return (
-        <View style={styles.formContainer}>
+        <View style={styles.container}>
             <TextInput
                 style={styles.input}
-                placeholder='Insira seu Email'
-                keyboardType='text'
+                placeholder='Email'
+                value={email}
+                onChangeText={setEmail}
             />
             <TextInput
                 style={styles.input}
-                placeholder='Insira seu Email'
+                placeholder='Senha'
                 keyboardType='password'
+                secureTextEntry
+                value={senha}
+                onChangeText={setSenha}
             />
 
             <View style={styles.buttonContainer}>
@@ -37,12 +47,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#faf0e6', 
+        
       },
-      formContainer: {
-        backgroundColor: '#f0f0f0',
-        padding: 16,
-        borderRadius: 10,
-    },
     input: {
         height: 40,
         borderColor: 'gray',
