@@ -15,7 +15,7 @@ export default function LoginScreen({ navigation }) {
     if (email === emailCorreto && senha === senhaCorreta) {
       navigation.navigate('Home');
     } else {
-      Alert.alert('Erro', 'Email ou senha incorretos!');
+      Alert.alert('Error', 'Incorrect email ou password!');
     }
   };
 
