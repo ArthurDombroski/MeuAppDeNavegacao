@@ -8,7 +8,7 @@ export default function LoginScreen({ navigation }) {
   const [senha, setSenha] = useState('');
 
 
-  const emailCorreto = 'admi';
+  const emailCorreto = 'admin';
   const senhaCorreta = '123456';
 
   const Login = () => {
