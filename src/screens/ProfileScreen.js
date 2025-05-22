@@ -19,7 +19,13 @@ export default function ProfileScreen({ navigation }) {
           onPress={() => navigation.navigate('Details')}
         />
       </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Go Back"
+          onPress={() => navigation.goBack()}
+        />
     </View>
+  </View>
   );
 }
 const styles = StyleSheet.create({
@@ -27,7 +33,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#e6e6fa', // Cor de fundo da tela
+      backgroundColor: '#e6e6fa', 
     },
     title: {
       fontSize: 24,
