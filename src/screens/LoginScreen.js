@@ -32,14 +32,14 @@ export default function LoginScreen({ navigation }) {
       />
       <TextInput
         style={styles.input}
-        placeholder='Senha'
+        placeholder='Password'
         secureTextEntry={true}
         value={senha}
         onChangeText={setSenha}
       />
 
       <TouchableOpacity style={styles.buttonContainer} onPress={Login}>
-        <Text style={styles.buttonText}>Entrar</Text>
+        <Text style={styles.buttonText}>Enter</Text>
       </TouchableOpacity>
     </View>
   );
