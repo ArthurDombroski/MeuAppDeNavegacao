@@ -14,7 +14,7 @@ export default function LoginScreen({ navigation }) {
 
   const saveEmail = async (state) => {
     try {
-      await AsynStorage.setItem("loggedIn",JSON.stringify(state));
+      await AsynStorage.setItem("loggedIn","true");
     } catch (error) {
       console.log("Erro ao salvar o login", error)
     }
@@ -22,8 +22,7 @@ export default function LoginScreen({ navigation }) {
 
   const Login = () => {
     if (email === emailCorreto && senha === senhaCorreta) {
-      navigation.navigate('Home');
-      const state = {loggedIn: true} 
+      navigation.navigate('Home'); 
       saveState(true);
     } 
     else {
