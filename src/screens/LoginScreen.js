@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Alert, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import AsynStorage from "@react-native-asyncs-storage/async-storage";
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -11,10 +12,21 @@ export default function LoginScreen({ navigation }) {
   const emailCorreto = 'admin';
   const senhaCorreta = '123456';
 
+  const saveEmail = async (state) => {
+    try {
+      await AsynStorage.setItem("state",JSON.stringify(emailArray));
+    } catch (error) {
+      console.log("Erro ao salvar o login", error)
+    }
+  }
+
   const Login = () => {
     if (email === emailCorreto && senha === senhaCorreta) {
       navigation.navigate('Home');
-    } else {
+      const state = {loggedIn: true} 
+      saveState(true);
+    } 
+    else {
       Alert.alert('Error', 'Incorrect email ou password!');
     }
   };
