@@ -14,7 +14,7 @@ export default function LoginScreen({ navigation }) {
 
   const saveEmail = async (state) => {
     try {
-      await AsynStorage.setItem("state",JSON.stringify(emailArray));
+      await AsynStorage.setItem("loggedIn",JSON.stringify(state));
     } catch (error) {
       console.log("Erro ao salvar o login", error)
     }
