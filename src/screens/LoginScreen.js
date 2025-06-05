@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Alert, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
 import AsynStorage from "@react-native-asyncs-storage/async-storage";
-
 const windowWidth = Dimensions.get('window').width;
 
 export default function LoginScreen({ navigation }) {
@@ -12,23 +11,23 @@ export default function LoginScreen({ navigation }) {
   const emailCorreto = 'admin';
   const senhaCorreta = '123456';
 
-  const saveEmail = async (state) => {
+  const saveCad = async (state) => {
     try {
       await AsynStorage.setItem("loggedIn","true");
     } catch (error) {
-      console.log("Erro ao salvar o login", error)
+      console.log("Erro ao salvar o cadastro", error)
     }
   }
 
-  const Login = () => {
-    if (email === emailCorreto && senha === senhaCorreta) {
-      navigation.navigate('Home'); 
-      saveState(true);
-    } 
-    else {
-      Alert.alert('Error', 'Incorrect email ou password!');
-    }
-  };
+    const Login = () => {
+      if (email === emailCorreto && senha === senhaCorreta) {
+        navigation.navigate('Home'); 
+        saveState(true);
+      } 
+      else {
+        Alert.alert('Error', 'Incorrect email ou password!');
+      }
+    };
 
   return (
     <View style={styles.container}>
@@ -40,6 +39,7 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setEmail}
         keyboardType='email-address'
         autoCapitalize='none'
+
       />
       <TextInput
         style={styles.input}
@@ -49,7 +49,7 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setSenha}
       />
 
-      <TouchableOpacity style={styles.buttonContainer} onPress={Login}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={Login && saveCad}>
         <Text style={styles.buttonText}>Enter</Text>
       </TouchableOpacity>
     </View>

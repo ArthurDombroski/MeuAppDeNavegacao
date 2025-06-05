@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import AsynStorage from "@react-native-asyncs-storage/async-storage";
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/HomeScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
@@ -8,7 +9,21 @@ import LoginScreen from './src/screens/LoginScreen';
 
 const Stack = createStackNavigator();
 
+
+
 export default function App() {
+
+  const loadCad = async () => {
+    try{
+      const storedCad = await AsyncStorage.getItem('storedCad');
+      if(storedCad !== null) {
+        return storedCad;
+      } 
+      } catch (error) {
+        console.log("Erro ao carregar o login");
+    }
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
