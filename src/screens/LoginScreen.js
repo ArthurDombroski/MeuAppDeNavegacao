@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 import { View, Text, Alert, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
-import AsynStorage from "@react-native-asyncs-storage/async-storage";
+
 const windowWidth = Dimensions.get('window').width;
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen({ saveCad }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-
 
   const emailCorreto = 'admin';
   const senhaCorreta = '123456';
 
-  const saveCad = async (state) => {
-    try {
-      await AsynStorage.setItem("loggedIn","true");
-    } catch (error) {
-      console.log("Erro ao salvar o cadastro", error)
-    }
-  }
+  const handleLogin = () => {
+    if (email.toLowerCase() === emailCorreto && senha === senhaCorreta) {
+      const userData = {
+        email: email,
+        loginTimestamp: new Date().getTime(),
+      };
+      
+      saveCad(userData);
 
-    const Login = () => {
-      if (email === emailCorreto && senha === senhaCorreta) {
-        navigation.navigate('Home'); 
-        saveState(true);
-      } 
-      else {
-        Alert.alert('Error', 'Incorrect email ou password!');
-      }
-    };
+    } else {
+      Alert.alert('Erro', 'Email ou senha incorretos!');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -39,7 +34,6 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setEmail}
         keyboardType='email-address'
         autoCapitalize='none'
-
       />
       <TextInput
         style={styles.input}
@@ -48,13 +42,14 @@ export default function LoginScreen({ navigation }) {
         value={senha}
         onChangeText={setSenha}
       />
-
-      <TouchableOpacity style={styles.buttonContainer} onPress={Login && saveCad}>
+      
+      <TouchableOpacity style={styles.buttonContainer} onPress={handleLogin}>
         <Text style={styles.buttonText}>Enter</Text>
       </TouchableOpacity>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
