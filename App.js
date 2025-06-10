@@ -60,7 +60,6 @@ export default function App() {
           
           <>
             <Stack.Screen name="Home" options={{ headerShown: false }}>
-              {}
               {props => <HomeScreen {...props} logout={logout} />}
             </Stack.Screen>
             <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
