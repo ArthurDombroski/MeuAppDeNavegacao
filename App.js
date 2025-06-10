@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from "@react-native-asyncs-storage/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/HomeScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
