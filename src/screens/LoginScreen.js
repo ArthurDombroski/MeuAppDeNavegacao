@@ -13,8 +13,8 @@ export default function LoginScreen({ saveCad }) {
   const emailCorreto = 'admin';
   const senhaCorreta = '123456';
 
-  const handleLogin = () => {
-    if (email.toLowerCase() === emailCorreto && senha === senhaCorreta) {
+  const checarLogin = () => {
+    if (email === emailCorreto && senha === senhaCorreta) {
       const userData = {
         email: email,
         loginTimestamp: new Date().getTime(),
@@ -46,7 +46,7 @@ export default function LoginScreen({ saveCad }) {
         onChangeText={setSenha}
       />
       
-      <TouchableOpacity style={styles.buttonContainer} onPress={handleLogin}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={checarLogin}>
         <Text style={styles.buttonText}>Enter</Text>
       </TouchableOpacity>
     </View>
