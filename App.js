@@ -10,13 +10,13 @@ import LoginScreen from './src/screens/LoginScreen';
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [isLoggedIn, LoggedIn] = useState(false);
-  const [isLoading, Loading] = useState(true); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); 
 
   const saveCad = async (userData) => {
     try {
       await AsyncStorage.setItem('storedCad', JSON.stringify(userData));
-      LoggedIn(true); 
+      setIsLoggedIn(true); 
       console.log("Login salvo com sucesso!");
     } catch (error) {
       console.log("Erro ao salvar o login");
@@ -41,12 +41,12 @@ export default function App() {
       try {
         const storedCad = await AsyncStorage.getItem('storedCad');
         if (storedCad !== null) {
-          LoggedIn(true);
+          setIsLoggedIn(true);
         }
       } catch (error) {
         console.log("Erro ao carregar o login");
       } finally {
-        Loading(false);
+        setIsLoading(false);
       }
     };
 
